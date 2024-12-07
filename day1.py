@@ -3,7 +3,7 @@ from collections import defaultdict
 list1 = []
 list2 = []
 
-with open('day1input.txt') as f:
+with open('day1.txt') as f:
     for line in f:
         arr = line.replace('\n', '').split(' ')
         list1.append(int(arr[0]))
