@@ -16,10 +16,22 @@ def search(arr, word="XMAS"):
             count += 1
   return count
 
+def searchXMAS(arr):
+  count = 0
+  for i in range(1,len(arr) - 1):
+    for j in range(1, len(arr[i]) - 1):
+      if arr[i][j] == "A":
+        one = (arr[i-1][j-1] == "M" and arr[i+1][j+1] == "S") or (arr[i-1][j-1] == "S" and arr[i+1][j+1] == "M")
+        two = (arr[i-1][j+1] == "M" and arr[i+1][j-1] == "S") or (arr[i-1][j+1] == "S" and arr[i+1][j-1] == "M")
+        if one and two:
+          count += 1
+  return count
+
 arr = []
 with open('day4.txt') as f:
   for line in f:
     line.replace("\n", "")
     arr.append(list(line))
 
-print(search(arr))
+print("Part 1 Solution:", search(arr))
+print("Part 2 Solution:", searchXMAS(arr))
